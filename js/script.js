@@ -27,6 +27,16 @@ let searchButton = `
 
 searchArea.insertAdjacentHTML("beforeend", searchButton);
 
+function searchNames (searchInput, list) {
+   for ( let i = 0; i < list.length; i++ ) {
+      if ( searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
+         list[i].className = 'student-search';
+      }
+
+   }
+
+}
+
 
 
 
@@ -114,6 +124,8 @@ function addPagination (list) {
 showPage(data, 1);
 
 addPagination(data);
+
+searchNames(searchInput, data);
 
 /*
 Create the `addPagination` function
