@@ -57,7 +57,7 @@ function addPagination (list) {
   pageButtons.innerHTML = '';
 
   // loop over the number of pages needed
-  for ( let i = 0; i >= numOfPages.valueOf(); i++ ) {
+  for ( let i = 0; i <= numOfPages.valueOf(); i++ ) {
    pageButtons.insertAdjacentHTML("beforeend", `<li><button type="button">${i + 1}</button></li>`);
    let firstButton = document.querySelector('ul.link-list li:first-child button');
    firstButton.className = 'active';
@@ -68,6 +68,7 @@ function addPagination (list) {
     // insert the above elements
 
   // give the first pagination button a class of "active"
+  
 
   // create an event listener on the `link-list` element
     // if the click target is a button:
