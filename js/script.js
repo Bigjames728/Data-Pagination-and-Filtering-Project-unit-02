@@ -11,6 +11,25 @@ For assistance:
    Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
 */
 
+// Select the header class from the index file
+
+let searchArea = document.querySelector('.header');
+
+// Creates the HTML elements for search input and button
+
+let searchButton = `
+   <label for="search" class="student-search">
+   <input id="search" placeholder="Search by name...">
+   <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+   </label>`;
+
+// Dynamically insert search input and button
+
+searchArea.insertAdjacentHTML("beforeend", searchButton);
+
+
+
+
 
 
 /*
@@ -70,7 +89,18 @@ function addPagination (list) {
   // give the first pagination button a class of "active"
   
 
+
+
   // create an event listener on the `link-list` element
+
+  pageButtons.addEventListener('click', (e) => {
+   if ( e.target.tagName == "BUTTON") {
+      pageButtons.querySelector('.active').className = '';
+      e.target.className = 'active';
+      showPage(data, e.target.textContent);
+   }
+
+  });
     // if the click target is a button:
       // remove the "active" class from the previous button
       // add the active class to the clicked button
