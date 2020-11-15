@@ -31,12 +31,28 @@ function searchNames (searchInput, list) {
    const search = document.querySelector('#search');
    for ( let i = 0; i < list.length; i++ ) {
       if ( searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
-         list[i].className = 'student-search';
+         
       }
 
    }
 
 };
+
+// Below is an addEventListener that I can't get to work so far.
+
+search.addEventListener('click', (e) => {
+   const searchInput = e.target.value.toLowerCase();
+   let searchResults = [];
+
+   for ( let i = 0; i < data.length; i++ ) {
+      const studentName = `${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
+
+      if (studentName.includes(searchInput)) {
+         searchResults.push(data[i]);
+      };
+   };
+
+});
 
 
 
