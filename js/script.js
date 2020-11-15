@@ -23,6 +23,8 @@ let searchButton = `
    <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
    </label>`;
 
+
+
 // Dynamically insert search input and button
 
 searchArea.insertAdjacentHTML("beforeend", searchButton);
@@ -38,7 +40,7 @@ function searchNames (searchInput, list) {
 
 };
 
-// Below is an addEventListener that I can't get to work so far.
+// Got the below 'keyup' event listener to work
 
 search.addEventListener('keyup', (e) => {
    const searchInput = e.target.value.toLowerCase();
@@ -49,10 +51,39 @@ search.addEventListener('keyup', (e) => {
 
       if (studentName.includes(searchInput)) {
          searchResults.push(data[i]);
-      };
+         showPage(searchResults, 1);
+         addPagination(searchResults);
+      } else if (searchResults.length === 0) {
+         error(searchInput);
+         addPagination(searchResults);
+      }
    };
 
 });
+
+// can't get the 'click' event listener to work
+
+// searchButton.addEventListener('click', (e) => {
+//    const searchInput = e.target.value.toLowerCase();
+//    let searchResults = [];
+
+//    for ( let i = 0; i < data.length; i++ ) {
+//       const studentName = `${data[i].name.title.toLowerCase()} ${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
+
+//       if (studentName.includes(searchInput)) {
+//          searchResults.push(data[i]);
+//          showPage(searchResults, 1);
+//          addPagination(searchResults);
+//       } 
+
+//    };
+
+//    if (searchResults.length === 0) {
+//       error(searchInput);
+//       addPagination(searchResults);
+//    }
+
+// });
 
 
 
