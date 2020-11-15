@@ -28,6 +28,7 @@ let searchButton = `
 searchArea.insertAdjacentHTML("beforeend", searchButton);
 
 function searchNames (searchInput, list) {
+   const search = document.querySelector('#search');
    for ( let i = 0; i < list.length; i++ ) {
       if ( searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
          list[i].className = 'student-search';
@@ -35,7 +36,7 @@ function searchNames (searchInput, list) {
 
    }
 
-}
+};
 
 
 
@@ -86,7 +87,7 @@ function addPagination (list) {
   pageButtons.innerHTML = '';
 
   // loop over the number of pages needed
-  for ( let i = 0; i <= numOfPages.valueOf(); i++ ) {
+  for ( let i = 0; i < numOfPages.valueOf(); i++ ) {
    pageButtons.insertAdjacentHTML("beforeend", `<li><button type="button">${i + 1}</button></li>`);
    let firstButton = document.querySelector('ul.link-list li:first-child button');
    firstButton.className = 'active';
@@ -125,7 +126,7 @@ showPage(data, 1);
 
 addPagination(data);
 
-searchNames(searchInput, data);
+searchNames(search, data);
 
 /*
 Create the `addPagination` function
