@@ -40,7 +40,7 @@ function searchNames (searchInput, list) {
 
 // Below is an addEventListener that I can't get to work so far.
 
-search.addEventListener('click', (e) => {
+search.addEventListener('keyup', (e) => {
    const searchInput = e.target.value.toLowerCase();
    let searchResults = [];
 
