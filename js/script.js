@@ -29,14 +29,20 @@ let searchButton = `
 
 searchArea.insertAdjacentHTML("beforeend", searchButton);
 
+
+
+// Search function (redo)
 function searchNames (searchInput, list) {
-   const search = document.querySelector('#search');
-   for ( let i = 0; i < list.length; i++ ) {
+   let studentArr = [];
+    for ( let i = 0; i < list.length; i++ ) {
       if ( searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
-         
+         studentArr.push(data[i]);
+         showPage(studentArr, data);
+         addPagination(studentArr);
       }
 
-   }
+    }
+
 
 };
 
