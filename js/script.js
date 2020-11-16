@@ -78,10 +78,7 @@ search.addEventListener('keyup', (e) => {
 
 //    };
 
-//    if (searchResults.length === 0) {
-//       error(searchInput);
-//       addPagination(searchResults);
-//    }
+//    
 
 // });
 
