@@ -80,8 +80,8 @@ let searchButtonIcon = searchArea.querySelector('button[type="button"]');
 
 
 searchButtonIcon.addEventListener('click', (e) => {
-   const input = searchArea.querySelector('#search')
-   const searchInput = e.target.input.toLowerCase();
+   const input = searchArea.querySelector('input#search');
+   const searchInput = input.value.toLowerCase();
    let searchResults = [];
 
    for ( let i = 0; i < data.length; i++ ) {
