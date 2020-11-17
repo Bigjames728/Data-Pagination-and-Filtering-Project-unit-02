@@ -46,47 +46,58 @@ function searchNames (searchInput, list) {
 
 };
 
+
+// Defining error function
+
+function error() {
+
+
+}
+
 // Got the below 'keyup' event listener to work
 
-search.addEventListener('keyup', (e) => {
-   const searchInput = e.target.value.toLowerCase();
-   let searchResults = [];
-
-   for ( let i = 0; i < data.length; i++ ) {
-      const studentName = `${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
-
-      if (studentName.includes(searchInput)) {
-         searchResults.push(data[i]);
-         showPage(searchResults, 1);
-         addPagination(searchResults);
-      } else if (searchResults.length === 0) {
-         error(searchInput);
-         addPagination(searchResults);
-      }
-   };
-
-});
-
-// can't get the 'click' event listener to work
-
-// searchButton.addEventListener('click', (e) => {
+// search.addEventListener('keyup', (e) => {
 //    const searchInput = e.target.value.toLowerCase();
 //    let searchResults = [];
 
 //    for ( let i = 0; i < data.length; i++ ) {
-//       const studentName = `${data[i].name.title.toLowerCase()} ${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
+//       const studentName = `${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
 
 //       if (studentName.includes(searchInput)) {
 //          searchResults.push(data[i]);
 //          showPage(searchResults, 1);
 //          addPagination(searchResults);
-//       } 
-
+//       } else if (searchResults.length === 0) {
+//          error(searchInput);
+//          addPagination(searchResults);
+//       }
 //    };
 
-//    
-
 // });
+
+// can't get the 'click' event listener to work
+let searchButtonIcon = searchArea.querySelector('button[type="button"]');
+
+
+searchButtonIcon.addEventListener('click', (e) => {
+   const input = searchArea.querySelector('#search')
+   const searchInput = e.target.input.toLowerCase();
+   let searchResults = [];
+
+   for ( let i = 0; i < data.length; i++ ) {
+      const studentName = `${data[i].name.title.toLowerCase()} ${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
+
+      if (studentName.includes(searchInput)) {
+         searchResults.push(data[i]);
+         showPage(searchResults, 1);
+         addPagination(searchResults);
+      } 
+
+   };
+
+   
+
+});
 
 
 
