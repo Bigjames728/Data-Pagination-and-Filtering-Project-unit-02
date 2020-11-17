@@ -56,24 +56,24 @@ function error() {
 
 // Got the below 'keyup' event listener to work
 
-// search.addEventListener('keyup', (e) => {
-//    const searchInput = e.target.value.toLowerCase();
-//    let searchResults = [];
+search.addEventListener('keyup', (e) => {
+   const searchInput = e.target.value.toLowerCase();
+   let searchResults = [];
 
-//    for ( let i = 0; i < data.length; i++ ) {
-//       const studentName = `${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
+   for ( let i = 0; i < data.length; i++ ) {
+      const studentName = `${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
 
-//       if (studentName.includes(searchInput)) {
-//          searchResults.push(data[i]);
-//          showPage(searchResults, 1);
-//          addPagination(searchResults);
-//       } else if (searchResults.length === 0) {
-//          error(searchInput);
-//          addPagination(searchResults);
-//       }
-//    };
+      if (studentName.includes(searchInput)) {
+         searchResults.push(data[i]);
+         showPage(searchResults, 1);
+         addPagination(searchResults);
+      } else if (searchResults.length === 0) {
+         error(searchInput);
+         addPagination(searchResults);
+      }
+   };
 
-// });
+});
 
 // can't get the 'click' event listener to work
 let searchButtonIcon = searchArea.querySelector('button[type="button"]');
