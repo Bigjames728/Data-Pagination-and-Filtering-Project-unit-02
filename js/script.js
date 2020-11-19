@@ -114,7 +114,7 @@ function showPage (list, page) {
 
    const studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
-
+// tried to add the "no results" message below, it isn't working yet.
    for ( let i = 0; i < list.length; i++) {
       if (list.length > 0) {
          studentList.innerHTML += `
