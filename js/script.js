@@ -31,28 +31,28 @@ searchArea.insertAdjacentHTML("beforeend", searchButton);
 
 
 
-// Search function (redo)
-function searchNames (searchInput, list) {
-   let studentArr = [];
-    for ( let i = 0; i < list.length; i++ ) {
-      if ( searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
-         studentArr.push(data[i]);
-         showPage(studentArr, data);
-         addPagination(studentArr);
-      }
+// // Search function (redo)
+// function searchNames (searchInput, list) {
+//    let studentArr = [];
+//     for ( let i = 0; i < list.length; i++ ) {
+//       if ( searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
+//          studentArr.push(data[i]);
+//          showPage(studentArr, data);
+//          addPagination(studentArr);
+//       }
 
-    }
-
-
-};
+//     }
 
 
-// Defining error function
-
-function error() {
+// };
 
 
-}
+// // Defining error function
+
+// function error() {
+
+
+// }
 
 // Got the below 'keyup' event listener to work
 
@@ -65,39 +65,39 @@ search.addEventListener('keyup', (e) => {
 
       if (studentName.includes(searchInput)) {
          searchResults.push(data[i]);
-         showPage(searchResults, 1);
-         addPagination(searchResults);
-      } else if (searchResults.length === 0) {
-         error(searchInput);
-         addPagination(searchResults);
+         
+      // } else if (searchResults.length === 0) {
+      //    error(searchInput);
+      //    addPagination(searchResults);
       }
    };
-
+   showPage(searchResults, 1);
+   addPagination(searchResults);
 });
 
 // can't get the 'click' event listener to work
-let searchButtonIcon = searchArea.querySelector('button[type="button"]');
+// let searchButtonIcon = searchArea.querySelector('button[type="button"]');
 
 
-searchButtonIcon.addEventListener('click', (e) => {
-   const input = searchArea.querySelector('input#search');
-   const searchInput = input.value.toLowerCase();
-   let searchResults = [];
+// searchButtonIcon.addEventListener('click', (e) => {
+//    const input = searchArea.querySelector('input#search');
+//    const searchInput = input.value.toLowerCase();
+//    let searchResults = [];
 
-   for ( let i = 0; i < data.length; i++ ) {
-      const studentName = `${data[i].name.title.toLowerCase()} ${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
+//    for ( let i = 0; i < data.length; i++ ) {
+//       const studentName = `${data[i].name.title.toLowerCase()} ${data[i].name.first.toLowerCase()} ${data[i].name.last.toLowerCase()}`;
 
-      if (studentName.includes(searchInput)) {
-         searchResults.push(data[i]);
-         showPage(searchResults, 1);
-         addPagination(searchResults);
-      } 
+//       if (studentName.includes(searchInput)) {
+//          searchResults.push(data[i]);
+//          showPage(searchResults, 1);
+//          addPagination(searchResults);
+//       } 
 
-   };
+//    };
 
    
 
-});
+// });
 
 
 
@@ -115,48 +115,68 @@ function showPage (list, page) {
    const studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 // tried to add the "no results" message below, it isn't working yet.
-   for ( let i = 0; i < list.length; i++) {
-      if (list.length > 0) {
-         studentList.innerHTML += `
-         <li class="student-item cf">
-            <div class="student-details">
-               <img class="avatar" src=${list[i].picture.large} alt="Profile Picture">
-               <h3>${list[i].name.title} ${list[i].name.first} ${list[i].name.last}</h3>
-               <span class="email">${list[i].email}</span>
-            </div>
-            <div class="joined-details">
-               <span class="date">Joined ${list[i].registered.date}</span>
-            </div>
-         </li>
-         `;
-      } else {
-         studentList.innerHTMl += `There are no students that match this name.`
-      }
+   // for ( let i = 0; i < list.length; i++) {
+   //    if (list.length > 0) {
+   //       studentList.innerHTML += `
+   //       <li class="student-item cf">
+   //          <div class="student-details">
+   //             <img class="avatar" src=${list[i].picture.large} alt="Profile Picture">
+   //             <h3>${list[i].name.title} ${list[i].name.first} ${list[i].name.last}</h3>
+   //             <span class="email">${list[i].email}</span>
+   //          </div>
+   //          <div class="joined-details">
+   //             <span class="date">Joined ${list[i].registered.date}</span>
+   //          </div>
+   //       </li>
+   //       `;
+   //    } else {
+   //       studentList.innerHTMl += `There are no students that match this name.`
+   //    }
      
       
-   } 
+   // } 
 
  
-   // Looping through the list argument to obtain data and adding HTML elements for each student listing. This will show 9 students on the page.
-   for ( let i = 0; i < list.length; i++) {
-      if (i >= startIndex && i < endIndex) {
-         studentList.innerHTML += `
-         <li class="student-item cf">
-            <div class="student-details">
-               <img class="avatar" src=${list[i].picture.large} alt="Profile Picture">
-               <h3>${list[i].name.title} ${list[i].name.first} ${list[i].name.last}</h3>
-               <span class="email">${list[i].email}</span>
-            </div>
-            <div class="joined-details">
-               <span class="date">Joined ${list[i].registered.date}</span>
-            </div>
-         </li>
-         `;
-      }
+   // // Looping through the list argument to obtain data and adding HTML elements for each student listing. This will show 9 students on the page.
+   // for ( let i = 0; i < list.length; i++) {
+   //    if (i >= startIndex && i < endIndex) {
+   //       studentList.innerHTML += `
+   //       <li class="student-item cf">
+   //          <div class="student-details">
+   //             <img class="avatar" src=${list[i].picture.large} alt="Profile Picture">
+   //             <h3>${list[i].name.title} ${list[i].name.first} ${list[i].name.last}</h3>
+   //             <span class="email">${list[i].email}</span>
+   //          </div>
+   //          <div class="joined-details">
+   //             <span class="date">Joined ${list[i].registered.date}</span>
+   //          </div>
+   //       </li>
+   //       `;
+   //    }
      
       
-   } 
+   // } 
+   if (list.length > 0) {
+      for (let i = 0; i < list.length; i++) {
+         if (i >= startIndex && i < endIndex) {
+               studentList.insertAdjacentHTML("beforeend", `
+               <li class="student-item cf">
+                  <div class="student-details">
+                     <img class="avatar" src=${list[i].picture.large} alt="Profile Picture">
+                     <h3>${list[i].name.title} ${list[i].name.first} ${list[i].name.last}</h3>
+                     <span class="email">${list[i].email}</span>
+                  </div>
+                  <div class="joined-details">
+                     <span class="date">Joined ${list[i].registered.date}</span>
+                  </div>
+               </li>
+               `);
+         }
+      }
    
+   } else {
+      studentList.insertAdjacentHTML("beforeend", `<li class="student-item cf"><h3>Sorry, no results</h3></li>`)
+   };
 };
 
 function addPagination (list) {
@@ -209,7 +229,7 @@ showPage(data, 1);
 
 addPagination(data);
 
-searchNames(search, data);
+// searchNames(search, data);
 
 /*
 Create the `addPagination` function
