@@ -29,7 +29,7 @@ let searchButton = `
 
 searchArea.insertAdjacentHTML("beforeend", searchButton);
 
-// Got the below 'keyup' event listener to work
+// Got the below 'keyup' event listener to work. This lets a user type in a letter and immidiately starts to filter out all students based on the letter typed into search input and the letter that their name starts with.
 
 search.addEventListener('keyup', (e) => {
    const searchInput = e.target.value.toLowerCase();
@@ -46,7 +46,7 @@ search.addEventListener('keyup', (e) => {
    addPagination(searchResults);
 });
 
-// click event listener is below. 
+// click event listener is below. This lets a user click the magnifying glass button next to the search input to then submit the name typed into search.
 let searchButtonIcon = searchArea.querySelector('button[type="button"]');
 
 searchButtonIcon.addEventListener('click', (e) => {
@@ -67,7 +67,8 @@ searchButtonIcon.addEventListener('click', (e) => {
 
 /*
 Create the `showPage` function
-This function will create and insert/append the elements needed to display a "page" of nine students
+This function will create and insert/append the elements needed to display a "page" of nine students. This function also includes an if statement to help
+throw a "no results" message if the list.length is 0, meaning that no students match the letter/name a user has typed in.
 */
 
 function showPage (list, page) {
@@ -93,11 +94,15 @@ function showPage (list, page) {
                `);
          }
       }
-   
    } else {
       studentList.insertAdjacentHTML("beforeend", `<li class="student-item cf"><h3>Sorry, no results</h3></li>`)
    };
 };
+
+/*
+Create the `addPagination` function
+This function will create and insert/append the elements needed for the pagination buttons
+*/
 
 function addPagination (list) {
    // create a variable to calculate the number of pages needed
@@ -115,13 +120,6 @@ function addPagination (list) {
    let firstButton = document.querySelector('ul.link-list li:first-child button');
    firstButton.className = 'active';
   }
-    // create the elements needed to display the pagination button
-    // insert the above elements
-
-  // give the first pagination button a class of "active"
-  
-
-
 
   // create an event listener on the `link-list` element
 
@@ -131,27 +129,13 @@ function addPagination (list) {
       e.target.className = 'active';
       showPage(list, e.target.textContent);
    }
-
   });
-    // if the click target is a button:
-      // remove the "active" class from the previous button
-      // add the active class to the clicked button
-      // call the showPage function passing the `list` parameter and page to display as arguments
 };
 
-
-
-
+// Call functions
 
 showPage(data, 1);
 
 addPagination(data);
 
-/*
-Create the `addPagination` function
-This function will create and insert/append the elements needed for the pagination buttons
-*/
 
-
-
-// Call functions
